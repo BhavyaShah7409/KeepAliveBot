@@ -1,0 +1,15 @@
+name: Keep Render App Alive
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # every 10 minutes
+  workflow_dispatch:        # manual run button
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Render App
+        run: |
+          curl -s https://rl-optimised-compiler.onrender.com > /dev/null
